@@ -1,0 +1,53 @@
+.btn-label {
+    font-size: larger;
+    font-weight: bolder;
+    color: blue;
+}
+
+.file-upload-content {
+    background-color: white;
+    /* min-height: 0vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px !important;
+}
+
+.video-screen-btn {
+    text-decoration: none !important;
+    background-color: blue !important;
+    color: white !important;
+    border: none !important;
+}
+
+.drop-container {
+    border: 4px dashed blue !important;
+}
+
+.drop-message {
+    color: blue !important;
+}
+
+.file-name {
+    color: blue !important;
+}
+
+.file-type {
+    background-color: blue !important;
+    box-shadow: none !important;
+}
+
+.file-upload-btn {
+    background-color: blue !important;
+    border: none !important;
+    border-radius: 10px;
+    padding: 10px 18px !important;
+}
+
+/*
+    Overriding react-progress-steps styling
+*/
+._2Jtxm._2ZUAI ._2JvrO {
+    background-color: green !important;
+}

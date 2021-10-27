@@ -1,0 +1,125 @@
+.main_container {
+  min-height: 84vh;
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Numans', sans-serif;
+  /* background-color: black; */
+  overflow: auto;
+}
+
+.card {
+  min-height: 370px;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.signup-card {
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.login-card {
+  margin-top: 80px;
+  margin-bottom: 70px;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #ffc312;
+}
+
+.social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  color: white;
+}
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+
+.input-group-prepend span {
+  width: 50px;
+  background-color: #ffc312;
+  color: black;
+  border: 0 !important;
+}
+
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+  color: white;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn {
+  margin-top: 8px;
+  color: black;
+  background-color: #ffc312 !important;
+  width: 100px;
+}
+
+.login_btn:hover {
+  color: black;
+  background-color: white !important;
+}
+
+.links {
+  color: white;
+}
+
+.input-group {
+  position: relative;
+  align-items: stretch;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.input-group-prepend {
+  display: flex;
+  margin-right: -1px;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.link {
+  color: #007bff !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+  margin-left: 4px;
+}
+
+.card-body {
+  flex: 1 1 auto !important;
+  padding: 1.25rem !important;
+  min-height: 85%;
+}
+
+.signup-card-body {
+  min-height: 380px !important;
+}
+
+.card-footer {
+  padding: 1rem 1.25rem !important;
+}
