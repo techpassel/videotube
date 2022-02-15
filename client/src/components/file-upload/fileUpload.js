@@ -193,7 +193,7 @@ const FileUpload = (props) => {
                 <video className="video-player" loop autoPlay={true} src={videoUrl} controls />
             </Modal>
         </>
-    )
+    )   
 }
 
 export default FileUpload;

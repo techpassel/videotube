@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './modal.css';
 
 const Modal = ({ show, handleClose, children }) => {
-    const [container, setContainer] = useState("")
     const modalRef = useRef();
     useEffect(() => {
         if (show) {

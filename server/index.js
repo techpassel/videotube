@@ -16,8 +16,8 @@ dotenv.config();
 const PORT = process.env.PORT || 5550;
 
 const app = express();
-//The express.json() function is a built-in middleware function in Express.It parses incoming requests with JSON payloads and is based on body-parser.
-//i.e if we don't write following line(or any similar code) and suppose if we send some data in JSON format in request body,then we won't be able to access that.
+//The express.json() function is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
+//i.e if we don't write following line(or any similar code) and suppose if we send some data in JSON format in request body,then we might not be able to access them.
 app.use(express.json());
 
 //Serves all the request which includes /images in the url from 'public' folder
