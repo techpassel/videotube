@@ -17,17 +17,24 @@ const VideoType = {
     COOKING: "Cooking",
     TRAVEL_VLOG: "Travel vlog",
     FOOD_VLOG: "Food vlog"
-}  
+}
 
 const PlaylistType = {
     USER_PLAYLIST: "User Playlist",
     CHANNEL_PLAYLIST: "Channel Playlist"
 }
 
+const AccessType = {
+    PUBLIC: "Public",
+    PRIVATE: "Private"
+}
+
 Object.freeze(VideoType)
 Object.freeze(PlaylistType)
+Object.freeze(AccessType)
 
 export {
     VideoType,
-    PlaylistType
+    PlaylistType,
+    AccessType
 }

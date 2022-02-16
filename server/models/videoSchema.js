@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { VideoType } from '../constants/enums';
+import { VideoType } from '../constants/enums.js';
 
 const videoTypes = Object.values(VideoType);
 

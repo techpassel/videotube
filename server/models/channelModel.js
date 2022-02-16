@@ -24,7 +24,7 @@ const channelSchema = mongoose.Schema(
             required: false
         }
     }
-)
+);
 
 const Channel = mongoose.model('Channel', channelSchema);
 

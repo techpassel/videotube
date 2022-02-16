@@ -1,7 +1,8 @@
 import mongoose from 'mongoose'
-import { PlaylistType } from '../constants/enums'
+import { PlaylistType, AccessType } from '../constants/enums.js'
 
 const playlistTypes = Object.values(PlaylistType);
+const accessTypes = Object.values(AccessType);
 
 const playlistSchema = mongoose.Schema(
     {
@@ -12,6 +13,11 @@ const playlistSchema = mongoose.Schema(
         type: {
             type: String,
             enum: playlistTypes,
+            required: true
+        },
+        accessType: {
+            type: String,
+            enum: accessTypes,
             required: true
         },
         user: {
@@ -29,7 +35,7 @@ const playlistSchema = mongoose.Schema(
             required: false,
         }
     }
-)
+);
 
 //If "type" is "USER_PLAYLIST" then "user" field will be filled and "channel" field will be empty.
 //And if "type" is "CHANNEL_PLAYLIST" then "channel" field will be filled and "user" field will be empty.

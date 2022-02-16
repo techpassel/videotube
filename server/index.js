@@ -5,8 +5,10 @@ import dotenv from 'dotenv'
 import connectDB from './configs/dbConnection.js'
 import authRoute from './routes/authRoute.js'
 import adminRoute from './routes/adminRoute.js'
-import userRoute from './routes/userRoute.js'
-import { notFound, errorHandler} from './middlewares/expressMiddleware.js'
+import playlistRoute from './routes/playlistRoute.js'
+import channelRoute from './routes/channelRoute.js'
+import { notFound, errorHandler } from './middlewares/expressMiddleware.js'
+
 
 const __dirname = path.resolve();
 //Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
@@ -22,7 +24,6 @@ app.use(express.json());
 
 //Serves all the request which includes /images in the url from 'public' folder
 app.use('/uploads', express.static(__dirname + '/uploads'));
-
 //Cors configuration using "cors" middleware.
 var corsOptions = {
     origin: 'http://localhost:3000',
@@ -31,7 +32,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 //Database connection
-connectDB(); 
+connectDB();
 
 //Test Url - To check if node server is accessible.
 app.get("/", (req, res) => res.send("Node server is working properly"));
@@ -42,11 +43,12 @@ app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`)).on('er
     } else {
         console.log(err);
     }
-})
+});
 
 //Routes
 app.use("/auth", authRoute);
-app.use("/user", userRoute);
+app.use("/playlist", playlistRoute);
+app.use("/channel", channelRoute);
 app.use("/admin", adminRoute);
 
 //Error related middlewares - Should be included in the last. 
