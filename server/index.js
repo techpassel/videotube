@@ -8,6 +8,7 @@ import adminRoute from './routes/adminRoute.js'
 import playlistRoute from './routes/playlistRoute.js'
 import channelRoute from './routes/channelRoute.js'
 import { notFound, errorHandler } from './middlewares/expressMiddleware.js'
+import { initializeS3FS } from './utils/fileUpload.js';
 
 
 const __dirname = path.resolve();
@@ -16,7 +17,6 @@ const __dirname = path.resolve();
 //Otherwise environment variables may not word in this file or any other file if they are called before calling this function.  
 dotenv.config();
 const PORT = process.env.PORT || 5550;
-
 const app = express();
 //The express.json() function is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
 //i.e if we don't write following line(or any similar code) and suppose if we send some data in JSON format in request body,then we might not be able to access them.
@@ -33,6 +33,9 @@ app.use(cors(corsOptions));
 
 //Database connection
 connectDB();
+
+//Initializing S3FS
+initializeS3FS();
 
 //Test Url - To check if node server is accessible.
 app.get("/", (req, res) => res.send("Node server is working properly"));

@@ -1,17 +1,22 @@
 import asyncHandler from 'express-async-handler';
 import Channel from '../models/channelModel.js';
+import uploadFile from '../utils/fileUpload.js';
 
 const addChannel = asyncHandler(async (req, res) => {
     const { name, about, userId } = req.body;
-    const profileImage = req.files.profileImage[0].path;
-    const bannerImage = req.files.bannerImage[0].path;
-    
     const channelsExists = await Channel.findOne({ name });
     if (channelsExists) {
         res.status(400)
         throw new Error("Channel name already exist.");
     }
-
+    let profileImage = req.files.profileImage[0].path;
+    let bannerImage = req.files.bannerImage[0].path;
+    profileImage = await uploadFile(profileImage, "channel-related");
+    bannerImage = await uploadFile(bannerImage, "channel-related");
+    // Promise.all([promise1, promise2]).then(value => {
+    //     console.log(value, "vavavavavavavav");
+    //     res.send(value);
+    // })
     const channel = await Channel.create({ name, about, user: userId, profileImage, bannerImage });
     if (channel) {
         res.status(201).json(channel);
@@ -33,7 +38,7 @@ const updateChannel = asyncHandler(async (req, res) => {
 
     if (req.body.name && req.body.name !== "") data["name"] = req.body.name;
     if (req.body.about && req.body.about !== "") data["about"] = req.body.about;
-    
+
     const channel = await Channel.findOneAndUpdate({ _id: id }, { $set: data }, { upsert: false, new: true })
     if (channel) {
         res.json(channel)

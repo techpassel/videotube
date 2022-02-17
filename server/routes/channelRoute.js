@@ -6,7 +6,7 @@ import { generateFileName } from "../utils/commonUtil.js";
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/channel-related/')
+        cb(null, 'tmp')
     },
     filename: function (req, file, cb) {
         const uniqueName = generateFileName(req, file)
