@@ -1,15 +1,17 @@
-import express from 'express'
-import path from 'path'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import connectDB from './configs/dbConnection.js'
-import authRoute from './routes/authRoute.js'
-import adminRoute from './routes/adminRoute.js'
-import playlistRoute from './routes/playlistRoute.js'
-import channelRoute from './routes/channelRoute.js'
-import { notFound, errorHandler } from './middlewares/expressMiddleware.js'
+import express from 'express';
+import path from 'path';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import connectDB from './configs/dbConnection.js';
+import authRoute from './routes/authRoute.js';
+import adminRoute from './routes/adminRoute.js';
+import playlistRoute from './routes/playlistRoute.js';
+import channelRoute from './routes/channelRoute.js';
+import subscriptionRoute from './routes/subscriptionRoute.js';
+import watchLaterRoute from './routes/watchLaterRoute.js';
+import videoRoute from './routes/videoRoute.js';
+import { notFound, errorHandler } from './middlewares/expressMiddleware.js';
 import { initializeS3FS } from './utils/fileUpload.js';
-
 
 const __dirname = path.resolve();
 //Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
@@ -26,7 +28,7 @@ app.use(express.json());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 //Cors configuration using "cors" middleware.
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_URL,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions));
@@ -53,6 +55,9 @@ app.use("/auth", authRoute);
 app.use("/playlist", playlistRoute);
 app.use("/channel", channelRoute);
 app.use("/admin", adminRoute);
+app.use("/subscription", subscriptionRoute);
+app.use("/watch-later", watchLaterRoute);
+app.use("/video", videoRoute);
 
 //Error related middlewares - Should be included in the last. 
 app.use(notFound);
