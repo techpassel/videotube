@@ -30,7 +30,6 @@ const uploadFile = (filePath, folderPath) => {
                 fs.unlinkSync(filePath, (err) => {
                     if (err) reject(err);
                 })
-                console.log(data);
                 resolve(data.Key);
             }
         });

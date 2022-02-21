@@ -55,8 +55,8 @@ const deleteChannel = asyncHandler(async (req, res) => {
         throw new Error("Channel id is required.")
     }
 
-    await Channel.deleteOne(id);
-    res.status(200);    
+    await Channel.deleteOne({id});
+    res.status(200).send();    
 });
 
 const updateProfileImage = asyncHandler(async (req, res) => {
