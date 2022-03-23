@@ -1,7 +1,22 @@
 import express from 'express';
 import protect from '../middlewares/authMiddleware';
-import { addVideo, updateVideo, deleteVideo, addVideoType, removeVideoType, likeVideo, dislikeVideo } from '../controllers/protectedVideoController.js';
-import { increaseVideoViewCount, getVideoDetails, getVideosByChannel, getVideosByPlaylist, getVideosByType, getReleventVideo } from '../controllers/unProtectedVideoController.js';
+import {
+    addVideo,
+    updateVideo,
+    deleteVideo,
+    addVideoType,
+    removeVideoType,
+    likeVideo,
+    dislikeVideo
+} from '../controllers/video-controllers/protectedVideoController.js';
+import {
+    increaseVideoViewCount,
+    getVideoDetails,
+    getVideosByChannel,
+    getVideosByPlaylist,
+    getVideosByType,
+    getReleventVideo
+} from '../controllers/video-controllers/unProtectedVideoController.js';
 
 const router = express.Router();
 
