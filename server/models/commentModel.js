@@ -6,14 +6,14 @@ const subCommentSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        likes: {
-            type: [mongoose.Schema.Types.ObjectId],
-            required: false
-        },
-        dislikes: {
-            type: [mongoose.Schema.Types.ObjectId],
-            required: false
-        },
+        likes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        dislikes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
     },
     {
         timestamps: true
@@ -36,15 +36,15 @@ const commentSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        likes: {
-            type: [mongoose.Schema.Types.ObjectId],
-            required: false
-        },
-        dislikes: {
-            type: [mongoose.Schema.Types.ObjectId],
-            required: false
-        },
-        subcomment: [subCommentSchema]
+        likes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        dislikes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        subcomments: [subCommentSchema]
     },
     {
         timestamps: true

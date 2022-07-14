@@ -13,8 +13,8 @@ const UploadVideoScreen = () => {
             Here we are setting value for video state. But it won't be updated immediately as
             React this.setState, and useState does not make changes directly to the state object.
             Actually they just create queues for React core to update the state object.
-            So we should use useState() as it will get trigger automatically when React core will 
-            actualy update the state object.And then we will send request on server to store the video on server.  
+            So we should use useEffect() as it will get trigger automatically when React core will 
+            actualy update the state object. And then we will send request on server to store the video on server.  
         */
         setVideo(files[0]);
     }

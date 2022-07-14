@@ -18,7 +18,7 @@ const videoSchema = mongoose.Schema(
             type: String,
             required: false
         },
-        types : {
+        types: {
             type: [String],
             enum: videoTypes
         },
@@ -39,7 +39,15 @@ const videoSchema = mongoose.Schema(
             type: Number,
             default: 0,
             required: false
-        }
+        },
+        likes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        dislikes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
     },
     {
         timestamps: true

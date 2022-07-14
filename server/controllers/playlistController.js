@@ -111,11 +111,25 @@ const getPlaylistsByChannel = asyncHandler(async (req, res) => {
     res.status(200).json(playlists);
 });
 
+const addVideoToPlaylist = asyncHandler(async(req, res) => {
+    const {videoId, playlistId, userId} = req.data;
+    //Only owner of the playlist can add video to playlist. We willcheck that with userId 
+    //Will implement functionalities later
+})
+
+const removeVideoFromPlaylist = asyncHandler(async(req, res) => {
+    const {videoId, playlistId, userId} = req.data;
+    //Only owner of the playlist can add video to playlist. We willcheck that with userId 
+    //Will implement functionalities later
+})
+
 export {
     addPlaylist,
     updatePlaylist,
     deletePlaylist,
     getPlaylistDetails,
     getPlaylistsByUser,
-    getPlaylistsByChannel
+    getPlaylistsByChannel,
+    addVideoToPlaylist,
+    removeVideoFromPlaylist
 }
